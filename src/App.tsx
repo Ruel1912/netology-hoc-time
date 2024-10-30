@@ -35,8 +35,11 @@ const formatDate = (date: string) => {
   return `${diffInDays} дней назад`
 }
 
-const dateTimePretty = (Component: FC<DateTimePrettyProps>, formatDate: (date: string) => string) => {
-  return ({ date }: DateTimePrettyProps) => {
+const dateTimePretty = (
+  Component: FC<DateTimePrettyProps>,
+  formatDate: (date: string) => string
+) => {
+  return function dateTimeWrapper({ date }: DateTimeProps) {
     return <Component date={formatDate(date)} />
   }
 }
